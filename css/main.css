@@ -1,0 +1,300 @@
+body {
+    background-color: #F1F1F1;
+    margin: 0;
+}
+
+.container {
+    background-color: #FFFFFF;
+    width: 1110px;
+    margin: auto;
+    position: relative;
+}
+
+#historyLabel {
+    font-size: 0.75rem;
+    margin: 1em 0 1px 0;
+}
+
+#historyTable {
+    width: 150px;
+    font-size: 0.65rem;
+    border: none transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-right: 1em;
+    float: right;
+}
+
+#historyTable td {
+    padding:  0;
+}
+
+#historySource {
+    font-size: 0.75rem;
+    margin: 1px 0 1px 0;
+}
+
+.border {
+    border-radius: 5px;
+    border: 1px solid #B0B0B0;
+}
+
+#navbar {
+    margin-top: 8px;
+}
+
+.btb-div, .col-xs-1 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.btn-row {
+    padding-bottom: 5px;
+}
+
+.btn-doubleRow {
+    height: 100%;
+}
+
+.ct-label {
+    font-size: 0.75rem;
+}
+
+.table1 {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+
+.table1 th {
+    text-align: center;
+}
+
+.table1 th,
+.table1 td {
+    border: 1px solid black;
+    border-top: 0;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.table1 tr td:first-child,
+.table1 tr th:first-child {
+    border-left: 0;
+    width: 55px;
+}
+
+.table1 tr td:last-child,
+.table1 tr th:last-child {
+    border-right: 0;
+}
+
+.table1 td:first-child, .table1 th:first-child {
+    min-width: 0;
+    padding: 0;
+}
+
+#historyLongTable td {
+    padding: 5px !important;
+}
+
+.btn:hover, .btn:active, .btn.active, .btn:focus {
+    box-shadow: none !important;
+    color: #ffffff !important;
+    border-color: #494F57 !important;
+    outline: 0;
+}
+
+.btn-left {
+    background-color: #0275d8 !important;
+    color: #ffffff !important;
+    padding: 1em !important;
+}
+
+.btn-right {
+    background-color: #0275d8 !important;
+    color: #ffffff !important;
+    padding: 1em !important;
+}
+
+button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc !important;
+    color: #666666;
+}
+
+.btn-all:hover, .btn-all:active, .btn-all.active, .btn-all:focus {
+    background-color: #0275d8 !important;
+}
+
+.btn-fi:hover, .btn-fi:active, .btn-fi.active, .btn-fi:focus {
+    background-color: #d24cd2 !important;
+}
+
+.btn-v:hover, .btn-v:active, .btn-v.active, .btn-v:focus {
+    background-color: #890505 !important;
+}
+
+.btn-s:hover, .btn-s:active, .btn-s.active, .btn-s:focus {
+    background-color: #fb0505 !important;
+}
+
+.btn-mp:hover, .btn-mp:active, .btn-mp.active, .btn-mp:focus {
+    background-color: #a2d06f !important;
+    color: #000000 !important;
+}
+
+.btn-sd:hover, .btn-sd:active, .btn-sd.active, .btn-sd:focus {
+    background-color: #ffc405 !important;
+    color: #000000 !important;
+}
+
+.btn-c:hover, .btn-c:active, .btn-c.active, .btn-c:focus {
+    background-color: #058f3d !important;
+}
+
+.btn-l:hover, .btn-l:active, .btn-l.active, .btn-l:focus {
+    background-color: #36c4f5 !important;
+    color: #000000 !important;
+}
+
+.btn-m:hover, .btn-m:active, .btn-m.active, .btn-m:focus {
+    background-color: #0574cd !important;
+}
+
+.btn-kd:hover, .btn-kd:active, .btn-kd.active, .btn-kd:focus {
+    background-color: #052669 !important;
+}
+
+.btn-sifo:hover, .btn-sifo:active, .btn-sifo.active, .btn-sifo:focus {
+    background-color: #3366CC !important;
+}
+
+.btn-yougov:hover, .btn-yougov:active, .btn-yougov.active, .btn-yougov:focus {
+    background-color: #DC3912 !important;
+}
+
+.btn-demoskop:hover, .btn-demoskop:active, .btn-demoskop.active, .btn-demoskop:focus {
+    background-color: #FF9900 !important;
+    color: #000000 !important;
+}
+
+.btn-ipsos:hover, .btn-ipsos:active, .btn-ipsos.active, .btn-ipsos:focus {
+    background-color: #109618 !important;
+}
+
+.btn-novus:hover, .btn-novus:active, .btn-novus.active, .btn-novus:focus {
+    background-color: #990099 !important;
+}
+
+.btn-scb:hover, .btn-scb:active, .btn-scb.active, .btn-scb:focus {
+    background-color: #0099C6 !important;
+}
+
+.btn-inizio:hover, .btn-inizio:active, .btn-inizio.active, .btn-inizio:focus {
+    background-color: #DD4477 !important;
+}
+
+.btn-sentio:hover, .btn-sentio:active, .btn-sentio.active, .btn-sentio:focus {
+    background-color: #66AA00 !important;
+    color: #000000 !important;
+}
+
+.btn-skop:hover, .btn-skop:active, .btn-skop.active, .btn-skop:focus {
+    background-color: #b82e2e !important;
+    color: #000000 !important;
+}
+
+.btn-navbar:hover, .btn-navbar:active, .btn-navbar.active, .btn-navbar:focus {
+     background-color: #0275d8 !important;
+ }
+
+.btn-valresultat:hover, .btn-valresultat:active, .btn-valresultat.active, .btn-valresultat:focus {
+    background-color: rgba(255, 57, 57, 0.8) !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.span-row-2 {
+    grid-row: span 2 / auto;
+}
+
+.span-col-2 {
+    grid-column: span 2 / auto;
+}
+
+.btn {
+    background-color: #fff;
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 0.5em 0;
+    font-size: 16px;
+}
+
+.leftcolums {
+    float: left;
+}
+
+.rightcolums {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    padding-top: 1em;
+}
+
+.padding-top {
+    padding-top: 1em;
+}
+
+.center {
+    display: table;
+    margin: auto;
+}
+
+.history-source {
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+    margin-bottom: 0.5em;
+}
+
+svg > g > g:last-child { pointer-events: none }
+
+@media screen and (max-width: 1110px) {
+    .container {
+        width: 930px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .container {
+        width: 690px;
+    }
+
+    #columnchart_valresultat {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .container {
+        width: 690px;
+    }
+}
