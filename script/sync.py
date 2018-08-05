@@ -1,25 +1,12 @@
-import requests
-import csv
-import json
+#!/usr/bin/env python3
+
+import csv, json, os, requests
 
 r = requests.get('https://raw.githubusercontent.com/hjnilsson/SwedishPolls/master/Data/Polls.csv')
+if r.ok:
+    with open('polls.json', 'w+') as f:
+        json.dump(list(csv.DictReader(r.text.splitlines())), f)
 
-file = open('polls.csv', 'w+')
-file.write(r.text)
-file.close()
-
-csvfile = open('polls.csv', 'r')
-jsonfile = open('../data/polls.json', 'w+')
-
-jsonfile.write('[')
-
-reader = csv.DictReader(csvfile)
-rows = list(reader)
-totalRows = len(rows) - 1
-for i, row in enumerate(rows):
-    json.dump(row, jsonfile)
-
-    if i == totalRows:
-        jsonfile.write(']')
-    else:
-        jsonfile.write(',\n')
+    os.rename('polls.json', os.path.join(os.path.dirname(os.path.realpath(__file__)), '../html/data/polls.json'))
+else:
+    r.raise_for_status()
