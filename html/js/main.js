@@ -765,16 +765,16 @@ function addArray(array, key, value) {
 function drawColumnChartValresultat() {
     var data = google.visualization.arrayToDataTable([
         ["Parti", "Resultat", {role: "style"}],
-        ["Fi", 3.12, "color: #d24cd2"],
-        ["V", 5.72, "color: #890505"],
-        ["S", 31.01, "color: #fb0505"],
-        ["MP", 6.89, "color: #a2d06f"],
-        ["SD", 12.86, "color: #ffc405"],
-        ["C", 6.11, "color: #058f3d"],
-        ["L", 5.42, "color: #36c4f5"],
-        ["M", 23.33, "color: #0574cd"],
-        ["KD", 4.57, "color: #052669"],
-        ["Övrigt", 0.97, "color: #000000"]
+        ["Fi", 0.4, "color: #d24cd2"],
+        ["V", 7.9, "color: #890505"],
+        ["S", 28.4, "color: #fb0505"],
+        ["MP", 4.3, "color: #a2d06f"],
+        ["SD", 17.6, "color: #ffc405"],
+        ["C", 8.6, "color: #058f3d"],
+        ["L", 5.5, "color: #36c4f5"],
+        ["M", 19.8, "color: #0574cd"],
+        ["KD", 6.4, "color: #052669"],
+        ["Övrigt", 1.0, "color: #000000"]
     ]);
 
     var view = new google.visualization.DataView(data);
@@ -788,7 +788,7 @@ function drawColumnChartValresultat() {
         2]);
 
     var options = {
-        title: "Valresultat 2014",
+        title: "Preliminär valresultat 2018",
         chartArea: {
             // leave room for y-axis labels
             width: '100%',
