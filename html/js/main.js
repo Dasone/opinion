@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     //onResize();
 
-    $(".btn-all").click(function (e) {
+    $('.btn-all').click(function (e) {
         clickDataBtn("all", e);
     });
     $(".btn-fi").click(function (e) {
@@ -415,7 +415,7 @@ function groupData(data) {
     $.map(data, function (row) {
         if (allowedInstitutes.indexOf(row.house) >= 0) {
             if (row.PublYearMonth in grouped) {
-                let r = getObjects(grouped[row.PublYearMonth], 'company', row.house);
+                var r = getObjects(grouped[row.PublYearMonth], 'company', row.house);
                 if (r.length > 0) {
                     r = r[0];
                     r.m.push(Number(row.M));
@@ -659,7 +659,8 @@ function convertToArrayParty(data) {
     return array.reverse();
 }
 
-function round(value, precision = 1) {
+function round(value) {
+    var precision = 1;
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
 }
@@ -698,7 +699,7 @@ function convertMonthStringToNumber(monthString) {
         return 12;
 }
 
-function convertmonthNumberToString(month) {
+function convertMonthNumberToString(month) {
     if (month === 1)
         return 'januari';
     else if (month === 2)
@@ -725,17 +726,17 @@ function convertmonthNumberToString(month) {
         return 'december';
 }
 
-function convertShortMonthString(month){
-    return convertmonthNumberToString(month).substring(0, 3);
+function convertShortMonthString(month) {
+    return convertMonthNumberToString(month).substring(0, 3);
 }
 
 function getObjects(obj, key, val) {
     var objects = [];
     for (var i in obj) {
         if (!obj.hasOwnProperty(i)) continue;
-        if (typeof obj[i] == 'object') {
+        if (typeof obj[i] === 'object') {
             objects = objects.concat(getObjects(obj[i], key, val));
-        } else if (i == key && obj[key] == val) {
+        } else if (i === key && obj[key] === val) {
             objects.push(obj);
         }
     }
@@ -764,17 +765,16 @@ function addArray(array, key, value) {
 
 function drawColumnChartValresultat() {
     var data = google.visualization.arrayToDataTable([
-        ["Parti", "Resultat", {role: "style"}],
-        ["Fi", 0.4, "color: #d24cd2"],
-        ["V", 7.9, "color: #890505"],
-        ["S", 28.4, "color: #fb0505"],
-        ["MP", 4.3, "color: #a2d06f"],
-        ["SD", 17.6, "color: #ffc405"],
-        ["C", 8.6, "color: #058f3d"],
-        ["L", 5.5, "color: #36c4f5"],
-        ["M", 19.8, "color: #0574cd"],
-        ["KD", 6.4, "color: #052669"],
-        ["Övrigt", 1.0, "color: #000000"]
+        ["Parti", "Resultat", {role: "style"}, {type: 'string', role: 'tooltip', 'p': {'html': true}}],
+        ["V", 8.00, "color: #890505", createTooltipValresultat('Vänsterpartiet', 8.00)],
+        ["S", 28.26, "color: #fb0505", createTooltipValresultat('Socialdemokraterna', 28.26)],
+        ["MP", 4.41, "color: #a2d06f", createTooltipValresultat('Miljöpartiet', 4.41)],
+        ["SD", 17.53, "color: #ffc405", createTooltipValresultat('Sverigedemokraterna', 17.53)],
+        ["C", 8.61, "color: #058f3d", createTooltipValresultat('Centerpartiet', 8.61)],
+        ["L", 5.49, "color: #36c4f5", createTooltipValresultat('Liberalerna', 5.49)],
+        ["M", 19.84, "color: #0574cd", createTooltipValresultat('Moderaterna', 19.84)],
+        ["KD", 6.32, "color: #052669", createTooltipValresultat('Kristdemokraterna', 6.32)],
+        ["Övrigt", 1.54, "color: #000000", createTooltipValresultatOvrigt()]
     ]);
 
     var view = new google.visualization.DataView(data);
@@ -785,10 +785,10 @@ function drawColumnChartValresultat() {
             type: "string",
             role: "annotation"
         },
-        2]);
+        2, 3]);
 
     var options = {
-        title: "Preliminär valresultat 2018",
+        title: 'Valresultat 2018',
         chartArea: {
             // leave room for y-axis labels
             width: '100%',
@@ -796,11 +796,64 @@ function drawColumnChartValresultat() {
         },
         width: 350,
         height: 120,
-        bar: {groupWidth: "95%"},
-        legend: {position: "none"},
+        bar: {groupWidth: '95%'},
+        legend: {position: 'none'},
+        tooltip: {isHtml: true}
     };
     var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_valresultat"));
     chart.draw(view, options);
+}
+
+function createTooltipValresultat(category, points) {
+    return '<div style="padding: 5px;">' +
+        '<small>' +
+        '<strong>' + category + '</strong>' +
+        '<br>' +
+        'Resultat: <strong>' + points + '</strong>' +
+        '</small>' +
+        '</div>'
+}
+
+function createTooltipValresultatOvrigt() {
+    return '<div style="padding: 5px;">' +
+        '<small>' +
+        '<strong>Övrigt</strong>' +
+        '<br>' +
+        'Resultat: <strong>1.54</strong>' +
+        '<hr>' +
+        'Feministiskt initiativ: <strong>0.46</strong>' +
+        '<br>' +
+        'Alternativ för Sverige: <strong>0.31</strong>' +
+        '<br>' +
+        'Medborgerlig samling: <strong>0.20</strong>' +
+        '<br>' +
+        'Piratpartiet: <strong>0.11</strong>' +
+        '<br>' +
+        'Direktdemokraterna: <strong>0.08</strong>' +
+        '<br>' +
+        'Landsbygdspartiet oberoende: <strong>0.08</strong>' +
+        '<br>' +
+        'Enhet: <strong>0.07</strong>' +
+        '<br>' +
+        'Djurens parti: <strong>0.06</strong>' +
+        '<br>' +
+        'Kristna värdepartiet: <strong>0.05</strong>' +
+        '<br>' +
+        'Nordiska motståndsrörelsen: <strong>0.03</strong>' +
+        '<br>' +
+        'Klassiskt liberala partiet: <strong>0.02</strong>' +
+        '<br>' +
+        'Sveriges kommunistiska parti: <strong>0.01</strong>' +
+        '<br>' +
+        'Basinkomstpartiet: <strong>0.01</strong>' +
+        '<br>' +
+        'Initiativet: <strong>0.01</strong>' +
+        '<br>' +
+        'Trygghetspartiet: <strong>0.01</strong>' +
+        '<br>' +
+        'Skånepartiet: <strong>0.01</strong>' +
+        '</small>' +
+        '</div>'
 }
 
 function drawComboChartNuvarandeManadAvg(data) {
@@ -845,7 +898,7 @@ function drawComboChartNuvarandeManadAvg(data) {
         2]);
 
     var options = {
-        title: 'Nuvarande opinionläge ' + convertmonthNumberToString(nowMonth) + ' månad',
+        title: 'Nuvarande opinionläge ' + convertMonthNumberToString(nowMonth) + ' månad',
         seriesType: 'bars',
         legend: {
             position: 'none'
@@ -904,7 +957,6 @@ function getPage(data) {
     }
 
     var from = pageIndex * sizeInt;
-    var to = pageIndex * sizeInt + sizeInt;
 
     if (from + sizeInt >= data.length) {
         $('.btn-left').prop('disabled', true);
